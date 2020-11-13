@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        tools:context=".MainActivity">
+
+        <!-- Input-field for throw mod -->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_difficulty"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:hint=""
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_difficulty_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Output-View for throw mod -->
+
+        <TextView
+            android:id="@+id/output_difficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/throw_modificator"
+            app:layout_constraintStart_toStartOf="@id/input_difficulty"
+            app:layout_constraintTop_toBottomOf="@id/input_difficulty" />
+
+        <!-- Input View for TP modificator -->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_damage"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:hint=""
+            app:layout_constraintStart_toEndOf="@+id/input_difficulty"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/damage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Output View for TP modificator -->
+
+        <TextView
+            android:id="@+id/output_damage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tp_modificator"
+            app:layout_constraintStart_toStartOf="@id/input_damage"
+            app:layout_constraintTop_toBottomOf="@id/input_damage" />
+
+        <TextView
+            android:id="@+id/target_movement_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/target_movement"
+            app:layout_constraintStart_toStartOf="@id/output_difficulty"
+            app:layout_constraintTop_toBottomOf="@id/output_difficulty" />
+
+        <RadioGroup
+            android:id="@+id/target_movement_options_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/target_no_movement"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/target_movement_options"
+            app:layout_constraintTop_toBottomOf="@id/target_movement_options">
+
+            <RadioButton
+                android:id="@+id/target_no_movement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/target_no_movement" />
+
+            <RadioButton
+                android:id="@+id/target_normal_movement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/target_moves" />
+
+            <RadioButton
+                android:id="@+id/target_fast_movement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/target_moves_fast" />
+
+            <RadioButton
+                android:id="@+id/target_evading_movement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/target_movement_evading" />
+
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/player_movement_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/player_movement"
+            app:layout_constraintStart_toStartOf="@id/target_movement_options_radio_group"
+            app:layout_constraintTop_toBottomOf="@id/target_movement_options_radio_group" />
+
+        <RadioGroup
+            android:id="@+id/player_movement_options_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/player_no_movement"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/player_movement_options"
+            app:layout_constraintTop_toBottomOf="@id/player_movement_options">
+
+            <RadioButton
+                android:id="@+id/player_no_movement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/player_movement_no" />
+
+            <RadioButton
+                android:id="@+id/player_slow_movement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/player_movement_slow" />
+
+            <RadioButton
+                android:id="@+id/player_normal_movement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/player_movement_normal" />
+
+            <RadioButton
+                android:id="@+id/player_riding_slow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/player_riding_slow" />
+
+            <RadioButton
+                android:id="@+id/player_riding_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/player_riding_medium" />
+
+            <RadioButton
+                android:id="@+id/player_riding_fast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/player_riding_fast" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/target_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/target_size"
+            app:layout_constraintStart_toStartOf="@id/player_movement_options_radio_group"
+            app:layout_constraintTop_toBottomOf="@id/player_movement_options_radio_group" />
+
+        <RadioGroup
+            android:id="@+id/target_size_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/target_size_medium"
+            app:layout_constraintStart_toStartOf="@id/target_size"
+            app:layout_constraintTop_toBottomOf="@id/target_size">
+
+            <RadioButton
+                android:id="@+id/target_size_tiny"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/target_size_tiny" />
+
+            <RadioButton
+                android:id="@+id/target_size_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/target_size_small" />
+
+            <RadioButton
+                android:id="@+id/target_size_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/target_size_medium" />
+
+            <RadioButton
+                android:id="@+id/target_size_big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/target_size_big" />
+
+            <RadioButton
+                android:id="@+id/target_size_giant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/target_size_giant" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/distance"
+            app:layout_constraintStart_toStartOf="@id/target_size_radio_group"
+            app:layout_constraintTop_toBottomOf="@id/target_size_radio_group" />
+
+        <RadioGroup
+            android:id="@+id/distance_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/distance_medium"
+            app:layout_constraintStart_toStartOf="@id/distance"
+            app:layout_constraintTop_toBottomOf="@id/distance">
+
+            <RadioButton
+                android:id="@+id/distance_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/distance_close" />
+
+            <RadioButton
+                android:id="@+id/distance_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/distance_medium" />
+
+            <RadioButton
+                android:id="@+id/distance_far"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/distance_far" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/visibility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/visibility"
+            app:layout_constraintStart_toStartOf="@id/distance_radio_group"
+            app:layout_constraintTop_toBottomOf="@id/distance_radio_group" />
+
+        <RadioGroup
+            android:id="@+id/visibility_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/visibility_clear"
+            app:layout_constraintStart_toStartOf="@id/visibility"
+            app:layout_constraintTop_toBottomOf="@id/visibility">
+
+            <RadioButton
+                android:id="@+id/visibility_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/visibility_clear" />
+
+            <RadioButton
+                android:id="@+id/visibility_impared"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/visibility_impared" />
+
+            <RadioButton
+                android:id="@+id/visibility_foggy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/visibility_foggy" />
+
+            <RadioButton
+                android:id="@+id/visibility_low"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/visibility_low" />
+
+            <RadioButton
+                android:id="@+id/visibility_invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/visibility_invisible" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/shot_into_fight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shot_into_fight"
+            app:layout_constraintStart_toStartOf="@id/visibility_radio_group"
+            app:layout_constraintTop_toBottomOf="@id/visibility_radio_group" />
+
+        <RadioGroup
+            android:id="@+id/shot_into_fight_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/shot_into_fight_no"
+            app:layout_constraintStart_toStartOf="@id/shot_into_fight"
+            app:layout_constraintTop_toBottomOf="@id/shot_into_fight">
+
+            <RadioButton
+                android:id="@+id/shot_into_fight_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shot_into_fight_yes" />
+
+            <RadioButton
+                android:id="@+id/shot_into_fight_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shot_into_fight_no" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/aiming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aiming"
+            app:layout_constraintStart_toStartOf="@id/shot_into_fight_radio_group"
+            app:layout_constraintTop_toBottomOf="@id/shot_into_fight_radio_group" />
+
+        <RadioGroup
+            android:id="@+id/aiming_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/aiming_no"
+            app:layout_constraintStart_toStartOf="@id/aiming"
+            app:layout_constraintTop_toBottomOf="@id/aiming">
+
+            <RadioButton
+                android:id="@+id/aiming_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/aiming_no" />
+
+            <RadioButton
+                android:id="@+id/aiming_short"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/aiming_short" />
+
+            <RadioButton
+                android:id="@+id/aiming_long"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/aiming_long" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/calculate_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/calculate"
+            app:layout_constraintTop_toBottomOf="@id/aiming_radio_group"
+            app:layout_constraintStart_toStartOf="@id/aiming_radio_group"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
